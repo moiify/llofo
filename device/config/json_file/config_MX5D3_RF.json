@@ -1,0 +1,19 @@
+{
+    "confVersion": "15.31.0",
+    "productType": 100,
+    "productName": "AT-MX5D3-RF",
+    "setting": [
+		{
+            "type": 2,
+            "value": 0,
+            "#name": "isMoveAlarmOn",
+            "#note": "u8 移动语音报警开关是否默认使能 <0 非使能>, <1 使能>"
+        },
+		{
+            "type": 12,
+            "value": 2,
+            "#name": "helmetType",
+            "#note": "u8 头盔锁类型 <0 无头盔锁>, <1 200ms电磁锁>, <2 卡扣式头盔锁>, <3 锁销式头盔锁>, <4 卡扣式头盔锁-亚克特头盔锁-MX3S>"
+        }
+    ]
+}

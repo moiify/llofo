@@ -1,0 +1,19 @@
+{
+    "confVersion": "15.20.0",
+    "productType": 100,
+    "productName": "AT-MX5K2(LM)-BB",
+    "setting": [
+        {
+            "type": 1,
+            "value": 0,
+            "#name": "isOverSpeedOn",
+            "#note": "u8 超速语音报警开关是否默认使能 <0 非使能>, <1 使能>"            
+        },
+        {
+            "type": 2,
+            "value": 0,
+            "#name": "isMoveAlarmOn",
+            "#note": "u8 移动语音报警开关是否默认使能 <0 非使能>, <1 使能>"
+        }
+    ]
+}

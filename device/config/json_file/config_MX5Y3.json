@@ -1,0 +1,85 @@
+{
+    "confVersion": "15.29.0",
+    "productType": 100,
+    "productName": "AT-MX5Y3-BB",
+    "setting": [
+        {
+            "type": 1,
+            "value": 0,
+            "#name": "isOverSpeedOn",
+            "#note": "u8 超速语音报警开关是否使能 <0 禁能>, <1 使能>"            
+        },
+        {
+            "type": 2,
+            "value": 0,
+            "#name": "isMoveAlarmOn",
+            "#note": "u8 移动语音报警开关是否使能 <0 禁能>, <1 使能>"
+        },
+        {
+            "type": 3,
+            "value": 100,
+            "#name": "audioRatio",
+            "#note": "u8 默认语音系数 范围<1~100>"
+        },
+        {
+            "type": 4,
+            "value": 0,
+            "#name": "isNightVoiceOn",
+            "#note": "u8 夜晚语音变小开关是否使能 <0 禁能>, <1 使能>"
+        },
+        {
+            "type": 5,
+            "value": 1,
+            "#name": "saddleType",
+            "#note": "u8 电池仓锁类型 <0 200ms电磁锁>, <1 1000ms卡扣式电池仓锁>, <2 1200ms锁销式电池仓锁>"
+        },
+        {
+            "type": 7,
+            "value": 0,
+            "#name": "isShakeAlarmOn",
+            "#note": "u8 震动告警否上报是否默认使能 <0 非使能>, <1 使能>"
+        },
+        {
+            "type": 8,
+            "value": 2,
+            "#name": "ctrlLightType",
+            "#note": "u8 大灯控制类型 <0 无大灯控制>, <1 电平大灯控制>, <2 控制器大灯控制>"
+        },
+        {
+            "type": 9,
+            "value": 1,
+            "#name": "etcType",
+            "#note": "u8 控制器类型 <0 无控制器协议>, <1 小安控制器协议>, <2 奕虎控制器协议>, <3 ME3晶汇控制器协议>"
+        },
+		{
+            "type": 10,
+            "value": 1,
+            "#name": "bmsType",
+            "#note": "u8 BMS类型 <0 无BMS>, <1 小安BMS协议>, <2 南都BMS协议>, <3 如易出行BMS协议>, <4 星恒BMS协议>"
+        },
+        {
+            "type": 11,
+            "value": 48,
+            "#name": "batteryType",
+            "#note": "u8 电池类型 单位:V 电池类型为12V 36V 48V 60V 72V"
+        },
+        {
+            "type": 12,
+            "value": 2,
+            "#name": "helmetType",
+            "#note": "u8 头盔锁类型 <0 无头盔锁>, <1 200ms电磁锁>, <2 卡扣式头盔锁>, <3 锁销式头盔锁>, <4 卡扣式头盔锁-亚克特头盔锁-MX3S>"
+        },
+        {
+            "type": 13,
+            "value": 1,
+            "#name": "isAutoLockOn",
+            "#note": "u8 自动落锁功能开关是否默认使能 <0 非使能>, <1 使能>"
+        },
+		{
+            "type": 15,
+            "value": 0,
+            "#name": "isAngleDetectEnable",
+            "#note": "u8 倾倒检测功能开关是否默认使能 <0 非使能>, <1 使能>"
+        }
+    ]
+}

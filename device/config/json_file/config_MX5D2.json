@@ -1,0 +1,13 @@
+{
+    "confVersion": "15.12.0",
+    "productType": 100,
+    "productName": "AT-MX5D2-BB",
+    "setting": [
+        {
+            "type": 2,
+            "value": 0,
+            "#name": "isMoveAlarmOn",
+            "#note": "u8 移动语音报警开关是否默认使能 <0 非使能>, <1 使能>"
+        }
+    ]
+}

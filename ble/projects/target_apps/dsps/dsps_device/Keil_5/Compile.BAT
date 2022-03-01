@@ -1,22 +1,22 @@
 @echo off
-
-REM ¶¨ÒåÏà¹ØÃû³Æ
-rem À¶ÑÀ¹¤³ÌÃû
+chcp 65001
+REM å®šä¹‰ç›¸å…³åç§°
+rem è“ç‰™å·¥ç¨‹å
 set BLE_PRJ_NAME=dsps_device.uvprojx
-rem À¶ÑÀ±àÒëÈÕÖ¾ÎÄ¼þÃû
+rem è“ç‰™ç¼–è¯‘æ—¥å¿—æ–‡ä»¶å
 set BLE_LOG_FILE_NAME=ble_build_log.txt
-rem ×îÖÕÊä³öÀ¶ÑÀtxtÎÄ¼þÃû
+rem æœ€ç»ˆè¾“å‡ºè“ç‰™txtæ–‡ä»¶å
 set BLE_TXT_FILE_NAME=dacode.txt
-rem ×îÖÕÊä³öÀ¶ÑÀÊý×éÃû
+rem æœ€ç»ˆè¾“å‡ºè“ç‰™æ•°ç»„å
 set BLE_ARRAY_NAME=src_dacode
-rem À¶ÑÀ¹¤³ÌÊä³öÄ¿Â¼
+rem è“ç‰™å·¥ç¨‹è¾“å‡ºç›®å½•
 set BLE_OUTPUT_PATH=%cd%\out_585
-rem À¶ÑÀ±àÒëºêÅäÖÃÎÄ¼þÃû
+rem è“ç‰™ç¼–è¯‘å®é…ç½®æ–‡ä»¶å
 set BLE_MICRO_FILE_NAME=ble_micro.opt
-rem À¶ÑÀÅäÖÃ½Å±¾ÎÄ¼þÃû
+rem è“ç‰™é…ç½®è„šæœ¬æ–‡ä»¶å
 set BLE_CONFIG_FILE_NAME=config.bat
 
-REM Ñ°ÕÒ "config.bat" µÄÂ·¾¶ Ä¬ÈÏÔÚÔÚ±¾Ä¿Â¼ÏÂÕÒ
+REM å¯»æ‰¾ "config.bat" çš„è·¯å¾„ é»˜è®¤åœ¨åœ¨æœ¬ç›®å½•ä¸‹æ‰¾
 if exist "%BLE_CONFIG_FILE_NAME%" (
 	set PATH_CONFIG=%cd%
 ) else ( 
@@ -27,7 +27,7 @@ if exist "%BLE_CONFIG_FILE_NAME%" (
 
 echo PATH_CONFIG: %PATH_CONFIG%
 
-REM Ñ°ÕÒ "Bin2Array.exe" µÄÂ·¾¶ Ä¬ÈÏÔÚ´ó²Ö¿â¸ùÄ¿Â¼£¬·ñÔòÎªµ¥¶À±àÒëÔÚ±¾Ä¿Â¼ÏÂÕÒ
+REM å¯»æ‰¾ "Bin2Array.exe" çš„è·¯å¾„ é»˜è®¤åœ¨å¤§ä»“åº“æ ¹ç›®å½•ï¼Œå¦åˆ™ä¸ºå•ç‹¬ç¼–è¯‘åœ¨æœ¬ç›®å½•ä¸‹æ‰¾
 if "%REPO_ROOT%"=="" ( 
 	if exist "Bin2Array.exe" (
 		set PATH_BIN2ARRAY=%cd%
@@ -48,13 +48,13 @@ if "%REPO_ROOT%"=="" (
 echo PATH_BIN2ARRAY: %PATH_BIN2ARRAY%
 
 
-REM É¾³ý¾ÉµÄºêÅäÖÃÎÄ¼þ
+REM åˆ é™¤æ—§çš„å®é…ç½®æ–‡ä»¶
 if exist "%BLE_MICRO_FILE_NAME%"  del %BLE_MICRO_FILE_NAME%
 
-REM ½ÓÊÜ²úÆ·ÀàÐÍ£¬Êä³öºêÅäÖÃÎÄ¼þ
+REM æŽ¥å—äº§å“ç±»åž‹ï¼Œè¾“å‡ºå®é…ç½®æ–‡ä»¶
 call %PATH_CONFIG%\%BLE_CONFIG_FILE_NAME% 
 
-REM ´òÓ¡ºêÅäÖÃÎÄ¼þÄÚÈÝ
+REM æ‰“å°å®é…ç½®æ–‡ä»¶å†…å®¹
 echo.
 echo [36;1m  GET Micro_config File "%BLE_MICRO_FILE_NAME%" : [0m
 type %BLE_MICRO_FILE_NAME%
@@ -62,7 +62,7 @@ echo.
 echo [36;1m  Micro_config File END [0m
 echo.
 
-REM ÖØÖÃÊä³öÎÄ¼þ¼Ð
+REM é‡ç½®è¾“å‡ºæ–‡ä»¶å¤¹
 if exist "%BLE_OUTPUT_PATH%" (
 	rd /S /Q %BLE_OUTPUT_PATH%
 )
@@ -82,18 +82,18 @@ REM PLZ ADD "your mdk5 install path\UV4" to system path "Path", so "UV4.exe" can
 UV4.EXE -j0 -r %UV_PRO_PATH% -o %cd%\releaseFile\%BLE_LOG_FILE_NAME%
 set compile_err=%ERRORLEVEL%
 
-REM ´òÓ¡±àÒëÈÕÖ¾
+REM æ‰“å°ç¼–è¯‘æ—¥å¿—
 type %cd%\releaseFile\%BLE_LOG_FILE_NAME%
-REM É¾³ýÉú³ÉµÄºêÅäÖÃÎÄ¼þ
+REM åˆ é™¤ç”Ÿæˆçš„å®é…ç½®æ–‡ä»¶
 if exist "%BLE_MICRO_FILE_NAME%"  del %BLE_MICRO_FILE_NAME%
 
-REM ¿½±´Ò»·ÝÈÕÖ¾µ½´ó²Ö¿âµÄÈÕÖ¾Ä¿Â¼
+REM æ‹·è´ä¸€ä»½æ—¥å¿—åˆ°å¤§ä»“åº“çš„æ—¥å¿—ç›®å½•
 if not "%REPO_ROOT%"=="" ( 
 	copy %BLE_COMPILE_ROOT%\releaseFile\%BLE_LOG_FILE_NAME% %REPO_ROOT%\out\%BLE_LOG_FILE_NAME% 
 )
 
 
-REM ±àÒë½á¹û·´À¡
+REM ç¼–è¯‘ç»“æžœåé¦ˆ
 echo [33;1m  error level is %compile_err% [0m
 if %compile_err% == 0 (
 	echo [32;1m  No Errors or Warnings ! [0m
@@ -114,11 +114,11 @@ if %compile_err% geq 2 (
 	pause
 	exit
 )
-REM ¿½±´Êä³öµÄ BIN ÎÄ¼þ
+REM æ‹·è´è¾“å‡ºçš„ BIN æ–‡ä»¶
 copy %BLE_OUTPUT_PATH%\dacode.bin .\releaseFile\dacode.bin
 
 
-REM ÓÉ bin Éú³É txt
+REM ç”± bin ç”Ÿæˆ txt
 %PATH_BIN2ARRAY%\Bin2Array.exe -i .\releaseFile\dacode.bin -o .\releaseFile\%BLE_TXT_FILE_NAME% -a %BLE_ARRAY_NAME%
 if %errorlevel%==0 (
     echo [32;1m DA14585 CODE COMPILE SUCCESSFUL!  [0m
@@ -128,5 +128,5 @@ if %errorlevel%==0 (
     exit
 )
 
-REM Èç¹ûÎªµ¥¶ÀÖ±½Ó±àÒëÀ¶ÑÀ£¬ÔòÍê³ÉºóÍ£Ö¹
+REM å¦‚æžœä¸ºå•ç‹¬ç›´æŽ¥ç¼–è¯‘è“ç‰™ï¼Œåˆ™å®ŒæˆåŽåœæ­¢
 if "%REPO_ROOT%"=="" ( pause )

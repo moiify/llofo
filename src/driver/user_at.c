@@ -248,13 +248,7 @@ void at_res_callback(uint8_t *buf, uint16_t len)
 
     if(strstr((const char *)buf, "+SIM READY")) //收到sim卡信号后异步获取imsi
     {
-#if defined(COREVERSION14) || defined(COREVERSION09)
-        //do nothing
-#elif defined(COREVERSION23) || defined(COREVERSION06)
         fibo_get_imsi_asyn(setting_obtainIMSI_cb);
-#else
-#error "error! undefined Core Version"
-#endif
     }
 
     ElemType *temp = at_peekQueue();

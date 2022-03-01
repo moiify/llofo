@@ -1,0 +1,10 @@
+out/*
+.clang-format
+ble/projects/target_apps/dsps/dsps_device/Keil_5/*.uvguix.*
+ble/projects/target_apps/dsps/dsps_device/Keil_5/out_585/
+ble/projects/target_apps/dsps/dsps_device/Keil_5/releaseFile/
+ble/projects/target_apps/dsps/dsps_device/Keil_5/unused.txt
+
+ldscripts/*
+prebuilts/*
+tools/*

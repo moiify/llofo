@@ -9,7 +9,7 @@
 # warranty that such application will be suitable for the specified use
 # without further testing or modification.
 cmake_minimum_required(VERSION 3.13)
-set(L610_CORE "")
+set(L610_CORE "core_05.02.23")
 set(SOURCE_TOP_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(BINARY_TOP_DIR ${CMAKE_CURRENT_BINARY_DIR})
 set(CMAKE_C_COMPILER_FORCED   1)

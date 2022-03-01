@@ -426,17 +426,9 @@ v15.x.82-20210619
 
 #define VERSION_MINOR   255   //中间的版本号由Config文件决定
 
-#if defined(COREVERSION14) || defined(COREVERSION09)
-
-#define VERSION_MICRO   28    //编译14或09内核的脚本,使用此版本号
-
-#elif defined(COREVERSION23) || defined(COREVERSION06)
 
 #define VERSION_MICRO   82	  //编译23或06内核的脚本,使用此版本号
 
-#else
-#error "error! undefined Core Version"
-#endif
 
 #define VERSION_INT(a, b, c)    (a << 16 | b << 8 | c)
 #define _VERSION_DOT(a, b, c)    a##.##b##.##c

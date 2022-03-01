@@ -136,27 +136,6 @@ L_BOOL adc_getVoltageSync(u32 *voltage_mV, u8 channel)
 {
     INT32 voltage_ADC = 0;
 
-#if defined(COREVERSION09)
-    int32_t ret = fibo_hal_adc_get_data_polling(channel, &voltage_ADC);
-
-    if(ret != 0)
-    {
-        return L_FALSE;
-    }
-    if(channel == ADC_PWR_DETECT)
-    {
-        if(voltage_ADC < ADC_CARBAT_FAILTER)
-        {
-            voltage_ADC = 0;
-        }
-        *voltage_mV = (u32)ADC2BATVALUE(voltage_ADC);
-    }
-    if(channel == ADC_COMM_DETECT)
-    {
-        *voltage_mV = (u32)ADC2SMBVALUE(voltage_ADC);
-    }
-
-#elif defined(COREVERSION14) || defined(COREVERSION23) || defined(COREVERSION06)
     if(channel == ADC_PWR_DETECT)
     {
         voltage_ADC = fibo_hal_adc_get_data(ADC_PWR_DETECT, 2); //3.23V量程
@@ -180,9 +159,6 @@ L_BOOL adc_getVoltageSync(u32 *voltage_mV, u8 channel)
         }
         *voltage_mV = (u32)ADC2SMBVALUE(voltage_ADC);
     }
-#else
-    #error "error! undefined Core Version"
-#endif
 
     return L_TRUE;
 }

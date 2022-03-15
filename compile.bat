@@ -50,8 +50,7 @@ ninja clean
 ninja -w dupbuild=err | ..\..\tee.exe ..\output.log
 
 if exist ".\hex\app.pac" (
-    echo product[31;1m %PRODUCT_NAME% [0m build [32;1m Successful [0m
-    ..\..\SecPack\pack.exe .\hex\app.img L610 5.2.23
+    echo product [31;1m %PRODUCT_NAME% [0m build [32;1m Successful [0m
 ) else (
     echo product [31;1m %PRODUCT_NAME% [0m build [31;1m Failed [0m
 )
@@ -63,7 +62,7 @@ cd ..\..\..\
 EXIT /B
 
 :CASE_1
-    set PRODUCT_NAME=APP_RELEASE_BLE
+    set PRODUCT_NAME=APP_RELEASE_WITH_BLE_UPDATE
     GOTO END_CASE
 :CASE_2
     set PRODUCT_NAME=APP_RELEASE
